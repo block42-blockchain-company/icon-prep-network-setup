@@ -1,6 +1,8 @@
 version: '3'
 services:
    nginx:
+      depends_on:
+         - citizen
       image: 'nginx:1.17.3'
       container_name: 'nginx'
       volumes:
@@ -9,13 +11,15 @@ services:
       ports:
          - 80:80
          - 7100:7100
+      networks:
+         - CitizenNetwork
+      external_links:
+         - citizen
       restart: always
    
-   citizen-node:
-      depends_on:
-         - nginx
+   citizen:
       image: 'iconloop/citizen-node:1908271151xd2b7a4'
-      container_name: 'citizen-node'
+      container_name: 'citizen'
       environment:
          LOOPCHAIN_LOG_LEVEL: 'DEBUG'
          LOG_OUTPUT_TYPE: 'file'
@@ -23,7 +27,12 @@ services:
       volumes:
          - ./data:/data  # mount a data volumes
          - ./keys:/citizen_pack/keys  # Automatically generate cert key files here
-      ports:
-         - 10001:9000
-         - 10002:7100
+      expose:
+         - '9000'
+         - '7100'
+      networks:
+         - CitizenNetwork
       restart: always
+
+networks:
+   CitizenNetwork:

@@ -8,6 +8,7 @@ services:
       volumes:
          - ./nginx/nginx.conf:/etc/nginx/nginx.conf
          - ./nginx/whitelist.conf:/etc/nginx/whitelist.conf
+         - ./nginx/log/:/var/log/nginx/
       ports:
          - 80:80
          - 7100:7100
@@ -15,7 +16,7 @@ services:
          - CitizenNetwork
       external_links:
          - citizen
-      restart: always
+      restart: unless-stopped
    
    citizen:
       image: 'iconloop/citizen-node:1908271151xd2b7a4'
@@ -32,7 +33,7 @@ services:
          - '7100'
       networks:
          - CitizenNetwork
-      restart: always
+      restart: unless-stopped
 
 networks:
    CitizenNetwork:

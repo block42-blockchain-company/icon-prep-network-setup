@@ -1,4 +1,4 @@
-# ICON Network Setup
+# ICON P-Rep Network Setup
 
 <div>
   <a href="https://icxstakr.io">

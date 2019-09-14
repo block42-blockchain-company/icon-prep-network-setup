@@ -12,8 +12,6 @@ services:
           ports:
                - 9000:9000
                - 7100:7100
-          networks:
-               - IconNetwork
           external_links:
                - prep
           restart: always
@@ -38,9 +36,4 @@ services:
           expose:
                - '9000'
                - '7100'
-          networks:
-               - IconNetwork
           restart: always
-
-networks:
-   IconNetwork:

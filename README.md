@@ -1,7 +1,7 @@
 # ICON P-Rep Network Setup
 
 <div>
-  <a href="https://icxstakr.io">
+  <a href="https://zicon.tracker.solidwallet.io">
     <img src="https://img.shields.io/badge/network-testnet 3-brightgreen.svg" alt="TestNet 3 (PAGODA)" />
   </a>
   <a href="#">

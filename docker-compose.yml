@@ -1,39 +1,46 @@
 version: '3'
 services:
-   nginx:
-      depends_on:
-         - citizen
-      image: 'nginx:1.17.3'
-      container_name: 'nginx'
-      volumes:
-         - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-         - ./nginx/whitelist.conf:/etc/nginx/whitelist.conf
-         - ./nginx/log/:/var/log/nginx/
-      ports:
-         - 80:80
-         - 7100:7100
-      networks:
-         - CitizenNetwork
-      external_links:
-         - citizen
-      restart: unless-stopped
-   
-   citizen:
-      image: 'iconloop/citizen-node:1908271151xd2b7a4'
-      container_name: 'citizen'
-      environment:
-         LOOPCHAIN_LOG_LEVEL: 'DEBUG'
-         LOG_OUTPUT_TYPE: 'file'
-         #FASTEST_START: 'yes' # Restore from lastest snapshot DB
-      volumes:
-         - ./data:/data  # mount a data volumes
-         - ./keys:/citizen_pack/keys  # Automatically generate cert key files here
-      expose:
-         - '9000'
-         - '7100'
-      networks:
-         - CitizenNetwork
-      restart: unless-stopped
+     nginx:
+          depends_on:
+               - prep
+          image: 'nginx:1.17.3'
+          container_name: 'nginx'
+          volumes:
+               - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+               - ./nginx/access_lists/:/etc/nginx/access_lists/
+               - ./nginx/log/:/var/log/nginx/
+          ports:
+               - 9000:9000
+               - 7100:7100
+          networks:
+               - IconNetwork
+          external_links:
+               - prep
+          restart: always
+
+     prep:
+          image: 'iconloop/prep-node:1909111919x74b59c'
+          container_name: 'prep'
+          environment:
+               LOOPCHAIN_LOG_LEVEL: "DEBUG"
+               ICON_LOG_LEVEL: "DEBUG"
+               DEFAULT_PATH: "/data/loopchain"
+               LOG_OUTPUT_TYPE: "file"
+               CERT_PATH: "/cert"
+               TZ: "Europe/Vienna"
+               PRIVATE_PATH: "/cert/keystore"
+               PRIVATE_PASSWORD: "<KEYSTORE PASSWORD>"
+          cap_add:
+               - SYS_TIME
+          volumes:
+               - ./data:/data
+               - ./cert:/cert
+          expose:
+               - '9000'
+               - '7100'
+          networks:
+               - IconNetwork
+          restart: always
 
 networks:
-   CitizenNetwork:
+   IconNetwork:

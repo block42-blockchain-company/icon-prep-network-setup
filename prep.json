@@ -1,0 +1,9 @@
+{
+    "name": "<P-REP Name>",
+    "country": "<3-LETTER COUNTRY CODE>",
+    "city": "<LOCATION>",
+    "email": "<EMAIL>",
+    "website": "<WEBSITE>",
+    "details": "<CONFIG JSON>",
+    "p2pEndpoint": "<P-REP IP ADDRESS>:7100"
+}

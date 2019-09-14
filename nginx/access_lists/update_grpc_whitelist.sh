@@ -18,7 +18,7 @@ repshash=`curl -s ${PREP_NODE_LIST_API} -d '{ "jsonrpc" : "2.0", "method": "icx_
 
 for IP in `curl -s ${PREP_NODE_LIST_API} -d '{ "jsonrpc" : "2.0", "method": "rep_getListByHash", "id": 1234, "params": {"repsHash": '${repshash}'} }' | jq '.result[].p2pEndpoint' | sed s/\"//g | awk -F: '{ print $1 }'`
 do
-   echo "allow $IP;" >> "${GRPC_WHITELIST_UPDATED}"
+	echo "allow $IP;" >> "${GRPC_WHITELIST_UPDATED}"
 done
 
 oldChecksum=`cksum ${GRPC_WHITELIST} | awk '{ print $1 }'`

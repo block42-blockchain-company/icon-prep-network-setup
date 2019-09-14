@@ -2,7 +2,7 @@
 
 <div>
   <a href="https://icxstakr.io">
-    <img src="https://img.shields.io/badge/status-TestNet 3-brightgreen.svg" alt="TestNet 3 (PAGODA)" />
+    <img src="https://img.shields.io/badge/network-testnet 3-brightgreen.svg" alt="TestNet 3 (PAGODA)" />
   </a>
   <a href="#">
     <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />

@@ -21,6 +21,22 @@ At the moment there is only a single host machine (protected by a firewall) runn
 
 Currently there is only a whitelist for the API in use, the gRPC service is not yet protected as it is kind of unclear where to get a proper whitelist from. The first try for automating the whitelist update can be found in the `/nginx/access_lists/update_grpc_whitelist.sh` script.
 
+### WebSocket
+
+Install `wscat` in order to test websocket capabilities:
+
+```
+npm install -g wscat
+```
+
+Try to open a connection to your P-Rep's websocket:
+
+```
+wscat -c ws://<IP ADDRESS>:9000/api/ws/icon_dex
+```
+
+Check for a `connected` response. If you receive any error, your websocket is not working right.
+
 ## Licence
 
 This project is licensed under the MIT license. For more information see LICENSE.md.

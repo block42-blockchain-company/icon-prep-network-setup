@@ -17,7 +17,7 @@ services:
           restart: always
 
      prep:
-          image: 'iconloop/prep-node:1909111919x74b59c'
+          image: 'iconloop/prep-node:1909201800x5e2495'
           container_name: 'prep'
           environment:
                LOOPCHAIN_LOG_LEVEL: "DEBUG"

@@ -17,14 +17,16 @@ services:
           restart: always
 
      prep:
-          image: 'iconloop/prep-node:1909201800x5e2495'
+          image: 'iconloop/prep-node:1910151024x373518'
           container_name: 'prep'
           environment:
                LOOPCHAIN_LOG_LEVEL: "DEBUG"
                ICON_LOG_LEVEL: "DEBUG"
                DEFAULT_PATH: "/data/loopchain"
                LOG_OUTPUT_TYPE: "file"
-               CERT_PATH: "/cert"
+               CERT_PATH: "/cert"     
+               iissCalculatePeriod: "1800"
+               termPeriod: "1800"
                TZ: "Europe/Vienna"
                PRIVATE_PATH: "/cert/keystore"
                PRIVATE_PASSWORD: "<KEYSTORE PASSWORD>"

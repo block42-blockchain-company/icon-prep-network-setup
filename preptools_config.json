@@ -1,5 +1,5 @@
 {
-    "url": "https://zicon.net.solidwallet.io",
-    "nid": 80,
-    "keystore": "./keystore"
+	"url": "https://ctz.solidwallet.io/api/v3",
+	"nid": 1,
+	"keystore": "./cert/{KEYSTORE_NAME}"
 }

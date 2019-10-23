@@ -28,8 +28,8 @@ services:
                ICON_LOG_LEVEL: "DEBUG"
                FASTEST_START: "yes"
                TZ: "Europe/Vienna"
-               PRIVATE_KEY_FILENAME: "{KEYSTORE FILENAME}"
-               PRIVATE_PASSWORD: "{KEY_PASSWORD}"
+               PRIVATE_KEY_FILENAME: "{KEYSTORE_NAME}"
+               PRIVATE_PASSWORD: "{KEYSTORE_PASSWORD}"
           cap_add:
                - SYS_TIME
           volumes:

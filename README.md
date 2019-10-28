@@ -2,7 +2,7 @@
 
 <div>
   <a href="https://zicon.tracker.solidwallet.io">
-    <img src="https://img.shields.io/badge/network-testnet 3-brightgreen.svg" alt="TestNet 3 (PAGODA)" />
+    <img src="https://img.shields.io/badge/network-mainnet-brightgreen.svg" alt="MainNet" />
   </a>
   <a href="#">
     <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
@@ -11,17 +11,18 @@
 
 <br>
 
-![network-setup](https://user-images.githubusercontent.com/6087393/64905914-e552bf80-d6de-11e9-9bb0-f2bdeec08259.png)
+![network-setup](https://user-images.githubusercontent.com/6087393/67687644-edb63f80-f998-11e9-9a82-9cea4b2ce431.png)
 
 ## Network Setup
 
-At the moment there is only a single host machine (protected by a firewall) running in the cloud. On this machine both the P-Rep as well as the NGINX (Reverse Proxy) are running as a docker container. All the traffic enters the NGINX at port 7100 and 9000, gets rate limited + whitelisted and then forwarded to the P-Rep.
+The setup consists of two machines: the P-Rep and a Citizen node.
+Both machines use the `prep-node` docker image. Basically the only difference is that the P-Rep uses the keystore which were used to register on the network. The Citizen node uses a random keystore (as it does not sign blocks). Both nodes have a NGINX instance (acting as a reverse proxy) in front of the main node application which, for now, only rate limits the incoming traffic.
 
 ### Whitelist
 
-Currently there is only a whitelist for the API in use, the gRPC service is not yet protected as it is kind of unclear where to get a proper whitelist from. The first try for automating the whitelist update can be found in the `/nginx/access_lists/update_grpc_whitelist.sh` script.
+In the future the NGINX instances will also make use of a whitelist to limit the access to the gRPC service (Port 7100) only to other P-Reps. The `/nginx/access_lists/update_grpc_whitelist.sh` script will constantly refresh the IP address whitelist and reload the NGINX.
 
-### WebSocket
+### Testing WebSocket
 
 Install `wscat` in order to test websocket capabilities:
 
@@ -36,6 +37,21 @@ wscat -c ws://<IP ADDRESS>:9000/api/ws/icon_dex
 ```
 
 Check for a `connected` response. If you receive any error, your websocket is not working right.
+
+### Monitoring & Notification
+
+#### Grafana
+
+We use Grafana to track and visualize our container metrics. Make sure to check out [dockprom](https://github.com/stefanprodan/dockprom) if you are interested in using it.
+
+![grafana](https://user-images.githubusercontent.com/6087393/67688979-f4de4d00-f99a-11e9-9f59-e4787db17214.png)
+
+
+#### updown.io
+
+We use [uptime.io](https://updown.io/r/9GrXa) to track our P-Rep's uptime and get notified if something is wrong.
+
+![uptime](https://user-images.githubusercontent.com/6087393/67688949-eb54e500-f99a-11e9-86bd-83ef98c26562.png)
 
 ## Licence
 

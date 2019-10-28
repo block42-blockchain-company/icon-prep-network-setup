@@ -21,7 +21,7 @@ services:
           container_name: 'prep'
           environment:
                NETWORK_ENV: "mainnet"
-               #ENDPOINT_URL: "http://{CITIZEN_NODE_IP_ADDRESS}:9000"
+               ENDPOINT_URL: "http://{CITIZEN_NODE_IP_ADDRESS}:9000"
                LOG_OUTPUT_TYPE: "file"
                SWITCH_BH_VERSION3: "10324749"
                CERT_PATH: "/cert"

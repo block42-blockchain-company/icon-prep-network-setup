@@ -36,7 +36,7 @@ We use [uptime.io](https://updown.io/r/9GrXa) to track our P-Rep's uptime and ge
 
 ![uptime](https://user-images.githubusercontent.com/6087393/67688949-eb54e500-f99a-11e9-86bd-83ef98c26562.png)
 
-#### NGINX
+#### ngxtop
 
 We use `ngxtop` to monitor NGINX load. It is a tool that takes the NGINX log files, parses and aggregates them. Check it out here: [ngxtop](https://github.com/lebinh/ngxtop)
 

@@ -22,6 +22,21 @@ Both machines use the `prep-node` docker image. Basically the only difference is
 
 In the future the NGINX instances will also make use of a whitelist to limit the access to the gRPC service (Port 7100) only to other P-Reps. The `/nginx/access_lists/update_grpc_whitelist.sh` script will constantly refresh the IP address whitelist and reload the NGINX.
 
+### Monitoring & Notification
+
+#### Grafana
+
+We use `Grafana` to track and visualize our container metrics. Make sure to check out: [dockprom](https://github.com/stefanprodan/dockprom)
+
+![grafana](https://user-images.githubusercontent.com/6087393/67688979-f4de4d00-f99a-11e9-9f59-e4787db17214.png)
+
+
+#### updown.io
+
+We use [uptime.io](https://updown.io/r/9GrXa) to track our P-Rep's uptime and get notified if something is wrong.
+
+![uptime](https://user-images.githubusercontent.com/6087393/67688949-eb54e500-f99a-11e9-86bd-83ef98c26562.png)
+
 ### Testing WebSocket
 
 Install `wscat` in order to test websocket capabilities:
@@ -37,21 +52,6 @@ wscat -c ws://<IP ADDRESS>:9000/api/ws/icon_dex
 ```
 
 Check for a `connected` response. If you receive any error, your websocket is not working right.
-
-### Monitoring & Notification
-
-#### Grafana
-
-We use `Grafana` to track and visualize our container metrics. Make sure to check out: [dockprom](https://github.com/stefanprodan/dockprom)
-
-![grafana](https://user-images.githubusercontent.com/6087393/67688979-f4de4d00-f99a-11e9-9f59-e4787db17214.png)
-
-
-#### updown.io
-
-We use [uptime.io](https://updown.io/r/9GrXa) to track our P-Rep's uptime and get notified if something is wrong.
-
-![uptime](https://user-images.githubusercontent.com/6087393/67688949-eb54e500-f99a-11e9-86bd-83ef98c26562.png)
 
 ## Licence
 

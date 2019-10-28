@@ -1,9 +1,9 @@
 {
-    "name": "<P-REP Name>",
-    "country": "<3-LETTER COUNTRY CODE>",
-    "city": "<LOCATION>",
-    "email": "<EMAIL>",
-    "website": "<WEBSITE>",
-    "details": "<CONFIG JSON>",
-    "p2pEndpoint": "<P-REP IP ADDRESS>:7100"
+    "name": "{PREP_NAME}",
+    "country": "{3-LETTER_COUNTRY_CODE}",
+    "city": "{LOCATION}",
+    "email": "{EMAIL}",
+    "website": "{WEBSITE_URL}",
+    "details": "{CONFIG_JSON_URL}",
+    "p2pEndpoint": "{PREP_IP_ADDRESS}:7100"
 }

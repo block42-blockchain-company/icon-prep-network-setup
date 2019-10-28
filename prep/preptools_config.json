@@ -1,5 +1,5 @@
 {
 	"url": "https://ctz.solidwallet.io/api/v3",
 	"nid": 1,
-	"keystore": "./cert/{KEYSTORE_NAME}"
+	"keystore": "./cert/{PREP_KEYSTORE_NAME}"
 }

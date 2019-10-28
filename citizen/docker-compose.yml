@@ -2,7 +2,7 @@ version: '3'
 services:
      nginx:
           depends_on:
-               - prep
+               - citizen
           image: 'nginx:1.17.3'
           container_name: 'nginx'
           volumes:
@@ -16,9 +16,9 @@ services:
                - prep
           restart: always
 
-     prep:
+     citizen:
           image: 'iconloop/prep-node:1910261021xc97f33'
-          container_name: 'prep'
+          container_name: 'citizen'
           environment:
                NETWORK_ENV: "mainnet"
                LOG_OUTPUT_TYPE: "file"
@@ -28,8 +28,8 @@ services:
                ICON_LOG_LEVEL: "DEBUG"
                FASTEST_START: "yes"
                TZ: "Europe/Vienna"
-               PRIVATE_KEY_FILENAME: "{KEYSTORE_NAME}"
-               PRIVATE_PASSWORD: "{KEYSTORE_PASSWORD}"
+               PRIVATE_KEY_FILENAME: "{CITIZEN_KEYSTORE_NAME}"
+               PRIVATE_PASSWORD: "{CITIZEN_KEYSTORE_PASSWORD}"
           cap_add:
                - SYS_TIME
           volumes:

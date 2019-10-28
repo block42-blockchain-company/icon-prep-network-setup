@@ -1,0 +1,42 @@
+version: '3'
+services:
+     nginx:
+          depends_on:
+               - prep
+          image: 'nginx:1.17.3'
+          container_name: 'nginx'
+          volumes:
+               - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+               - ./nginx/access_lists/:/etc/nginx/access_lists/
+               - ./nginx/log/:/var/log/nginx/
+          ports:
+               - 9000:9000
+               - 7100:7100
+          external_links:
+               - prep
+          restart: always
+
+     prep:
+          image: 'iconloop/prep-node:1910261021xc97f33'
+          container_name: 'prep'
+          environment:
+               NETWORK_ENV: "mainnet"
+               #ENDPOINT_URL: "http://{CITIZEN_NODE_IP_ADDRESS}:9000"
+               LOG_OUTPUT_TYPE: "file"
+               SWITCH_BH_VERSION3: "10324749"
+               CERT_PATH: "/cert"
+               LOOPCHAIN_LOG_LEVEL: "DEBUG"
+               ICON_LOG_LEVEL: "DEBUG"
+               FASTEST_START: "yes"
+               TZ: "Europe/Vienna"
+               PRIVATE_KEY_FILENAME: "{PREP_KEYSTORE_NAME}"
+               PRIVATE_PASSWORD: "{PREP_KEYSTORE_PASSWORD}"
+          cap_add:
+               - SYS_TIME
+          volumes:
+               - ./data:/data
+               - ./cert:/cert
+          expose:
+               - '9000'
+               - '7100'
+          restart: always

@@ -17,7 +17,7 @@ services:
           restart: always
 
      prep:
-          image: 'iconloop/prep-node:1910211829xc2286d'
+          image: 'iconloop/prep-node:1910261021xc97f33'
           container_name: 'prep'
           environment:
                NETWORK_ENV: "mainnet"

@@ -1,7 +1,7 @@
 # ICON P-Rep Network Setup
 
 <div>
-  <a href="https://zicon.tracker.solidwallet.io">
+  <a href="https://tracker.icon.foundation/governance">
     <img src="https://img.shields.io/badge/network-mainnet-brightgreen.svg" alt="MainNet" />
   </a>
   <a href="#">

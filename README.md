@@ -11,7 +11,7 @@
 
 <br>
 
-![network-setup](https://user-images.githubusercontent.com/6087393/67687644-edb63f80-f998-11e9-9a82-9cea4b2ce431.png)
+![icon-prep-network-setup](https://user-images.githubusercontent.com/6087393/67846895-39d0c380-fb02-11e9-8b0a-1585151b1007.png)
 
 ## Network Setup
 

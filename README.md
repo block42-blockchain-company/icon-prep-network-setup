@@ -58,7 +58,9 @@ wscat -c ws://<IP ADDRESS>:9000/api/ws/icon_dex
 
 Check for a `connected` response. If you receive any error, your websocket is not working right.
 
-### Ansible Deployment
+## Deployment
+
+### Ansible
 
 To use ansible to copy over the files and render the docker-compose.yml with the appropriate entries (keystore_name, 
 password, image, and network_name), run the following command. 
@@ -76,7 +78,7 @@ ansible all \
 --private-key='/home/<user>/.ssh/XXX' 
 ```
 
-- To fully bootstrap an instance with this role, the other required roles and playbook can be found at github.com/insight-infrastructure/ansible-icon-prep or simply contact Rob from Insight. These roles include 
+- To fully bootstrap an instance with this role, the other required roles and playbook can be found at [insight-infrastructure/ansible-icon-prep](https://github.com/insight-infrastructure/ansible-icon-prep) or simply contact Rob from Insight. These roles include 
 	- disable-ipv6
  	- install-packages
  	- mount-volumes

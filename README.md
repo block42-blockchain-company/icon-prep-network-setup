@@ -78,16 +78,17 @@ ansible all \
 --private-key='/home/<user>/.ssh/XXX' 
 ```
 
-- To fully bootstrap an instance with this role, the other required roles and playbook can be found at [insight-infrastructure/ansible-icon-prep](https://github.com/insight-infrastructure/ansible-icon-prep) or simply contact Rob from Insight. These roles include 
-	- disable-ipv6
- 	- install-packages
- 	- mount-volumes
- 	- keystore 
- 	- start-docker
+To fully bootstrap an instance with this role, the other required roles and playbook can be found at [insight-infrastructure/ansible-icon-prep](https://github.com/insight-infrastructure/ansible-icon-prep) or simply contact [Rob](http://t.me/robcio) from Insight. These roles include:
+- disable-ipv6
+- install-packages
+- mount-volumes
+- keystore 
+- start-docker
 
-- This role doesn't copy over the keystore and assumes it is already there
-	- keystore_path can be set as the name of the keystore unless you use this role 
-- This requires an exact path for private key and comma in inventory
+This role doesn't copy over the keystore and assumes it is already there
+- keystore_path can be set as the name of the keystore unless you use this role 
+
+This requires an exact path for private key and comma in inventory.
 
 ## Licence
 

@@ -72,12 +72,11 @@ ansible all \
 --become-method=sudo \
 --become \
 --forks=5 \
---extra-vars='{"network_name":"testnet","image":"iconloop/prep-node:1911121115x323d60-dev","keystore_path":"keystore","keystore_password":"XXXX"}' \
+--extra-vars='{"network_name":"testnet","image":"iconloop/prep-node","keystore_path":"keystore","keystore_password":"XXXX"}' \
 --private-key='/home/<user>/.ssh/XXX' 
 ```
 
-- To fully bootstrap an instance with this role, the other required roles and playbook can be found at github
-.com/insight-infrastructure/ansible-icon-prep or simply contact Rob from Insight. These roles include 
+- To fully bootstrap an instance with this role, the other required roles and playbook can be found at github.com/insight-infrastructure/ansible-icon-prep or simply contact Rob from Insight. These roles include 
 	- disable-ipv6
  	- install-packages
  	- mount-volumes

@@ -27,7 +27,7 @@ services:
                CERT_PATH: "/cert"
                LOOPCHAIN_LOG_LEVEL: "DEBUG"
                ICON_LOG_LEVEL: "DEBUG"
-               FASTEST_START: "yes"{% else %}
+               FASTEST_START: "yes"{% elif network_name == 'testnet' %}
 
                CERT_PATH: "/cert"
                LOOPCHAIN_LOG_LEVEL: "DEBUG"

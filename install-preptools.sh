@@ -6,5 +6,5 @@ cd preptools
 python3 -m venv venv
 source venv/bin/activate
 ./build.sh
-pip install dist/preptools-1.0.2-py3-none-any.whl
+pip install dist/preptools-1.0.4-py3-none-any.whl
 pip install preptools
